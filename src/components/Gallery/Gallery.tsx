@@ -3,12 +3,12 @@ import ImageGallery from "react-image-gallery";
 import type { ReactImageGalleryItem } from "react-image-gallery";
 import type { Image } from './Gallery.types'
 
-import Classes from './Gallery.module.css'
-
 const Gallery = () => {
 
     const APTID = "5cdd743acbc13b00043ef391"
     const API_URI = `https://lineups-api.com/pro/api/apartments/${APTID}/tour-path/Default`
+
+    const [loaded, setLoaded] = useState(false)
 
     const [images, setImages] = useState([])
 
@@ -33,21 +33,23 @@ const Gallery = () => {
     }, []);
 
     return (
-        <div className={Classes.gallery}>
+        <div>
             {images.length ? (
                 <>
                     <div>Loaded {images.length} images</div>
+                    {!loaded && <div>Loading...</div>}
                     <ImageGallery
                         items={images}
-                        lazyLoad
-                        showNav
-                        showPlayButton={false}
-                        showThumbnails
-                        showFullscreenButton
+                        lazyLoad={!loaded}
+                        showNav={loaded}
+                        showPlayButton={loaded}
+                        showThumbnails={loaded}
+                        showFullscreenButton={loaded}
                         thumbnailPosition="bottom"
+                        onImageLoad={() => setLoaded(true)}
                     />
                 </>
-            ) : <div>Loading...</ div>}
+            ) : <div>0 images returned...</ div>}
         </div>
     )
 }
