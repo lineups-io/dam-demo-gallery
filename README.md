@@ -1,10 +1,10 @@
 # Demo image gallery using [`react-image-gallery`](https://github.com/xiaolin/react-image-gallery)
 
-[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/stavaughan/rgm-react-image-gallery/main)
+[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/stavaughan/dam-demo-gallery/main)
 
 ## Introduction
 
-Welcome to dam-demo-gallery! This is a demo app showcasing an image gallery using `react-image-gallery`. The primary goal is to demonstrate how effortlessly you can consume image data from the 'Lineups API' and represent a commercial user's personal image gallery.
+Welcome to dam-demo-gallery! This is a demo app showcasing an image gallery using `react-image-gallery`. The primary goal is to demonstrate how effortlessly you can consume image data from the 'Lineups API' and represent a commercial user's image gallery.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ Welcome to dam-demo-gallery! This is a demo app showcasing an image gallery usin
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/stavaughan/rgm-react-image-gallery.git
+    git clone https://github.com/lineups-io/dam-demo-gallery.git
     ```
 
 2. Navigate to the project directory:
@@ -35,17 +35,14 @@ Welcome to dam-demo-gallery! This is a demo app showcasing an image gallery usin
 
 ### Customize your App
 
-1. Change `.env.sample` to `.env` and add your own `VITE_API_URI` link
-
-2. Format your api image data with the following properties:
+1. Format your api image data with the following properties:
 
     ```ts
-    export interface Image {
+    interface Image {
         id: string;
         src: string;
         srcset: string;
         alt?: string;
-        thumbnail?: string;
     }
     ```
 
